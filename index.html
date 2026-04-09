@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Access Request - Aasthaz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            min-height: 100vh;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            border: 1px solid #b0d4f1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1d5d9b;
+            margin-top: 0;
+        }
+
+        p {
+            text-align: center;
+            color: #5aa3d9;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #2f5180;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #b8d8f8;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #1d5d9b;
+            box-shadow: 0 0 5px #7bc0f2;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #7bc0f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5aa3d9;
+        }
+
+        .checkbox-label {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .checkbox-label input {
+            width: auto;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="registrationForm" onsubmit="return handleSubmit(event)">
+        <h1>Request Website Access</h1>
+        <p>Join our exclusive platform to explore our premium fashion collection</p>
+
+        <label>Full Name:</label>
+        <input type="text" name="fullName" placeholder="Enter your full name" required>
+
+        <label>Email Address:</label>
+        <input type="email" name="email" placeholder="your@email.com" required>
+
+        <label>Phone Number:</label>
+        <input type="tel" name="phone" placeholder="+91 XXXXXXXXXX" required>
+
+        <label>Purpose of Visit:</label>
+        <select name="purpose" required>
+            <option value="">Select your purpose</option>
+            <option value="Personal Shopping">Personal Shopping</option>
+            <option value="Bulk Purchase">Bulk Purchase</option>
+            <option value="Business Partnership">Business Partnership</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label class="checkbox-label">
+            <input type="checkbox" name="terms" required>
+            <span>I agree to receive updates and communications</span>
+        </label>
+
+        <button type="submit">Get Access Now</button>
+    </form>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('registrationForm');
+            
+            const fullName = form.elements['fullName'].value.trim();
+            const email = form.elements['email'].value.trim();
+            const phone = form.elements['phone'].value.trim();
+            const purpose = form.elements['purpose'].value;
+            const terms = form.elements['terms'].checked;
+
+            // Simple validation
+            if (!fullName || !email || !phone || !purpose || !terms) {
+                alert('Please fill all fields.');
+                return false;
+            }
+
+            if (email.indexOf('@') === -1) {
+                alert('Please enter a valid email.');
+                return false;
+            }
+
+            // Success
+            alert('Thank you! We will contact you soon.');
+            window.location.href = 'Aasthazz.html';
+            return true;
+        }
+    </script>
+</body>
+</html>
